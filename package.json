@@ -1,0 +1,44 @@
+{
+  "name": "movie-api",
+  "version": "1.0.0",
+  "description": "a rest api for star wars movie",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/owujib/star-wars.git"
+  },
+  "keywords": [
+    "restful-api",
+    "nodejs",
+    "javascript",
+    "server",
+    "star",
+    "wars"
+  ],
+  "author": "owujib",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/owujib/star-wars/issues"
+  },
+  "homepage": "https://github.com/owujib/star-wars#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^14.2.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.2",
+    "joi": "^17.5.0",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.29.1",
+    "morgan": "^1.10.0",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.13.0",
+    "winston": "^3.4.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.7.0",
+    "nodemon": "^2.0.15"
+  }
+}
