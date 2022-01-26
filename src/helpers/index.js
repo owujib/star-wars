@@ -18,6 +18,8 @@ class Helpers {
    * @returns number or null
    */
   static getResourceID(value) {
+    console.log(value);
+
     if (value) {
       let Id = value
         .split('/')
