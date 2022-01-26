@@ -22,7 +22,7 @@ class Helpers {
     if (value) {
       let Idarr = value
         .split('/')
-       console.log(Idarr.length)
+       return Idarr[Idarr.length - 2]
 
     }
 
