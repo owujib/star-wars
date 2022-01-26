@@ -23,7 +23,7 @@ class Helpers {
       let Idarr = value
         .split('/')
        console.log(Idarr);
-      return parseInt(Id);
+//       return parseInt(Id);
       
 //         let Id = value
 //         .split('/')
@@ -31,7 +31,7 @@ class Helpers {
 //         .at(-1);
 //       return parseInt(Id);
     }
-    console.log(Id);
+//     console.log(Id);
 
     return null;
   }
