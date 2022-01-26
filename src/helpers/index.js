@@ -20,11 +20,16 @@ class Helpers {
   static getResourceID(value) {
  
     if (value) {
-      let Id = value
+      let Idarr = value
         .split('/')
-        .filter((element) => (element !== '' ? true : false))
-        .at(-1);
+       console.log(Idarr);
       return parseInt(Id);
+      
+//         let Id = value
+//         .split('/')
+//         .filter((element) => (element !== '' ? true : false))
+//         .at(-1);
+//       return parseInt(Id);
     }
     console.log(Id);
 
