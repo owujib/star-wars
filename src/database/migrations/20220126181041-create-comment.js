@@ -6,34 +6,31 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
-      },
-      email: {
-        type: Sequelize.STRING
-      },
-      movieId: {
-        type: Sequelize.STRING
-      },
-      username: {
-        type: Sequelize.STRING
-      },
-      content: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER,
       },
       ipAddress: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+      },
+      movieId: {
+        type: Sequelize.BIGINT,
+      },
+      username: {
+        type: Sequelize.STRING,
+      },
+      content: {
+        type: Sequelize.TEXT,
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
-      }
+        type: Sequelize.DATE,
+      },
     });
   },
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('Comments');
-  }
+  },
 };

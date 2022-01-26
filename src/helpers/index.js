@@ -36,7 +36,7 @@ class Helpers {
    * @param {Number} limit
    * @returns `{modelCount, content, totalPages, currentPage}`
    */
-  static pagingData(data, page, limit = 5) {
+  static pageData(data, page, limit = 5) {
     const { count: modelCount, rows: content } = data;
     const currentPage = page ? 0 + page : 0;
     const totalPages = Math.ceil(modelCount / limit);

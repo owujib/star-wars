@@ -9,7 +9,7 @@ class Controller {
    */
   sendSuccessResponse(res, data, message, statusCode) {
     return res.status(statusCode || 200).json({
-      success: true,
+      status: 'success',
       message,
       data,
     });

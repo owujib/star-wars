@@ -4,11 +4,11 @@ const path = require('path');
 const mysql = require('mysql2/promise');
 require('dotenv').config();
 //file imports
-const ApiRoutes = require('../routes/api');
-const WebRoutes = require('../routes/web');
+
 const { sequelize } = require('../models');
 const apiRoutes = require('../routes/api');
 const webRoutes = require('../routes/web');
+const ErrorHandler = require('../helpers/ErrorHandler');
 
 class App {
   constructor() {
@@ -17,13 +17,14 @@ class App {
     this.middlewares();
     this.routes();
     this.database();
+    this.globalErroHandler();
   }
 
   middlewares() {
     this.server.use(Express.json());
     this.server.use(Express.urlencoded({ extended: true }));
     this.server.set('view engine', 'ejs');
-    this.server.set('view', path.join(__dirname, '../views'));
+    // this.server.set('view', path.join(__dirname, '../views'));
     this.server.use(Express.static(path.join(__dirname, '../public')));
   }
 
@@ -33,6 +34,10 @@ class App {
 
     //web routes
     this.server.use(webRoutes);
+  }
+
+  globalErroHandler() {
+    this.server.use(ErrorHandler);
   }
 
   database() {

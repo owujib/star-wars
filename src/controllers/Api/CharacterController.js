@@ -1,5 +1,6 @@
-const Controller = require('../Controller');
 const axios = require('axios');
+
+const Controller = require('../Controller');
 const Helpers = require('../../helpers');
 
 class CharacterController extends Controller {
@@ -90,6 +91,56 @@ class CharacterController extends Controller {
       }
 
       return super.sendSuccessResponse(res, people, 'Characters fetched', 200);
+    } catch (error) {
+      return next(error);
+    }
+  }
+
+  /**
+   * @param {import('express').Request} req server request handler
+   * @param {import('express').Response} res server response handler
+   * @param {import('express').NextFunction} next server middlerware handler
+   * @returns {import('express').Response} returns response from the server response handler
+   */
+  async getCharacter(req, res, next) {
+    try {
+      const { characterId } = req.params;
+      let { status, data } = await axios.get(
+        `${CharacterController.API_URL}/${characterId}`,
+        {
+          headers: {
+            Accept: 'application/json',
+            'Cache-Control': 'no-cache',
+          },
+        },
+      );
+
+      let character = data;
+
+      if (status == 200) {
+        return super.sendSuccessResponse(
+          res,
+          {
+            id: Helpers.getResourceID(character.url),
+            name: character.name,
+            mass: character.mass,
+            gender: character.gender,
+            height: Helpers.heightToFeetAndInches(character.height),
+            filmsId: character.films.map(Helpers.getResourceID),
+            created: character.created,
+            eyeColor: character.eye_color,
+            homeWorld: character.homeworld,
+            hairColor: character.hair_color,
+            speciesId: character.species.map(Helpers.getResourceID),
+            skinColor: character.skin_color,
+            birthYear: character.birth_year,
+            vehiclesId: character.vehicles.map(Helpers.getResourceID),
+            starshipsId: character.starships.map(Helpers.getResourceID),
+          },
+          'Character retrieved successfully!',
+          200,
+        );
+      }
     } catch (error) {
       return next(error);
     }
