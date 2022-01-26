@@ -28,6 +28,8 @@ class CharacterController extends Controller {
       });
       let people = data;
 
+      console.log(people);
+
       if (status === 200) {
         if (filter !== '' || filter !== undefined) {
           people = data.results.filter((result) => {
