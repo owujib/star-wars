@@ -22,19 +22,10 @@ class Helpers {
     if (value) {
       let Idarr = value
         .split('/')
-       console.log(Idarr);
-      let v = Idarr.filter((element) => (element !== '' ? true : false))
-        .at(-1);
-      console.lof(Idarr)
-//       return parseInt(Id);
-      
-//         let Id = value
-//         .split('/')
-//         .filter((element) => (element !== '' ? true : false))
-//         .at(-1);
-//       return parseInt(Id);
+       console.log(Idarr.length)
+
     }
-//     console.log(Id);
+
 
     return null;
   }
